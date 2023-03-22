@@ -6,7 +6,7 @@ import {
   fetchCategoriesFailed,
 } from './categories.action';
 
-export function* fetchCategoriesAsync() {
+function* fetchCategoriesAsync() {
   try {
     const categories = yield call(getCategoriesAndDocuments);
     yield put(fetchCategoriesSuccess(categories));
@@ -15,7 +15,7 @@ export function* fetchCategoriesAsync() {
   }
 }
 
-export function* onFetchCategories() {
+function* onFetchCategories() {
   yield takeLatest(
     CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_START,
     fetchCategoriesAsync
