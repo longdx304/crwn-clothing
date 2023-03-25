@@ -12,7 +12,7 @@ import {
   NavigationContainer,
   NavLinks,
   NavLink,
-} from './navigation.styles.jsx';
+} from './navigation.styles';
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,9 @@ const Navigation = () => {
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
           {currentUser ? (
-            <NavLink onClick={handleSignOut}>SIGN OUT</NavLink>
+            <NavLink as="span" onClick={handleSignOut}>
+              SIGN OUT
+            </NavLink>
           ) : (
             <NavLink to="/auth">SIGN IN</NavLink>
           )}
